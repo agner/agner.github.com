@@ -15,6 +15,7 @@ also pays homage to the Danish statistician Agner Krarup Erlang.
 Resources
 ---------
 
+* [README](https://github.com/agner/agner#readme)
 * [Wiki](https://github.com/agner/agner/wiki)
 
 Download

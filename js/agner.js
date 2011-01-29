@@ -28,7 +28,9 @@ $.getJSON("http://github.com/api/v2/json/repos/show/agner?callback=?",
             }
             ul.append(li);
         });
-        $('#packages + p').replaceWith(ul);
+        $('#packages')
+            .append(' (' + repositories.length + ')')
+            .next('p').replaceWith(ul);
     }
 );
 

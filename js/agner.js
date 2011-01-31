@@ -8,10 +8,10 @@ function fetch(rs, i) {
         "http://github.com/api/v2/json/repos/show/agner?callback=?", {page: i},
         function (data) {
             var rs2 = rs.concat(data.repositories);
-            if (data.repositories.length < 25) {
-                return display(rs2);
+            if (data.repositories.length > 0) {
+                return fetch(rs2, i + 1);
             }
-            fetch(rs2, i + 1);
+            return display(rs2);
         }
     );
 }

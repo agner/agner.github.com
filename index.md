@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "About"
+title: "Erlang Package Index"
 ---
 
 <img src="images/agner.jpg" width="125"></img>

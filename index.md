@@ -20,6 +20,7 @@ Resources
 * [README](https://github.com/agner/agner#readme)
 * [CONTRIBUTING](https://github.com/agner/agner/blob/master/CONTRIBUTING.md)
 * [Wiki](https://github.com/agner/agner/wiki)
+* [Mailing list](http://groups.google.com/group/agner-erlang)
 
 Download
 --------

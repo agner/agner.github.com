@@ -14,6 +14,13 @@ capabilities such as versioning, downloads and so on.
 Agner is a shorthand for *A Giant Nebula of Erlang Repositories*. It
 also pays homage to the Danish statistician Agner Krarup Erlang.
 
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="hidden" name="hosted_button_id" value="RB3TVE3ZRQFZ8" />
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"></img>
+</form>
+
 Resources
 ---------
 

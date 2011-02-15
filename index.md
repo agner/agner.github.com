@@ -21,6 +21,24 @@ also pays homage to the Danish statistician Agner Krarup Erlang.
 <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"></img>
 </form>
 
+
+Installation and Configuration
+------------------------------
+
+It is just a matter of a simple oneliner to get Agner installed:
+
+     curl https://github.com/agner/agner/raw/master/scripts/oneliner | sh
+
+If you want to install latest release instead of HEAD, use this one:
+
+     curl https://github.com/agner/agner/raw/master/scripts/oneliner.release | sh
+
+### Configuation
+
+If your `/usr/local` isn't writeable to your user, either set your
+`AGNER_PREFIX` variable to point to some writeable location or use
+`sudo sh`.
+
 Resources
 ---------
 

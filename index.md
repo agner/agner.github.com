@@ -3,8 +3,6 @@ layout: default
 title: "Erlang Package Index"
 ---
 
-<img src="images/agner.jpg" width="125"></img>
-
 Agner is a rebar-friendly Erlang package index inspired by Clojars and
 Homebrew.
 

@@ -66,7 +66,7 @@ code {
     padding: 2px 4px;
 }
 
-pre {
+pre.code {
     background-color: #F8F8FF;
     border: 1px solid #DEDEDE;
     padding: 15px;

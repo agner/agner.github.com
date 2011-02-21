@@ -1,1 +1,81 @@
+body {
+/*  font-family:"Lucida Grande","bitstream vera sans","trebuchet ms",sans-serif,verdana; */
+}
+
+/* get rid of those system borders being generated for A tags */
+a:active {
+  outline:none;
+}
+
+:focus {
+  -moz-outline-style:none;
+}
+
 #packages + ul li + li {margin-top:1em}
+
+#agnerbox {
+
+  /* overlay is hidden before loading */
+  display:none;
+
+  /* standard decorations */
+  width:850px;
+  border:10px solid #666;
+
+  /* for modern browsers use semi-transparent color on the border. nice! */
+  border:10px solid rgba(82, 82, 82, 0.698);
+
+  /* hot CSS3 features for mozilla and webkit-based browsers (rounded borders) */
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+}
+
+.status {
+  margin-top: -2px;
+  margin-left: -30px;
+  padding-bottom: 2px;
+  color: #666;
+  font-size:12px;
+  font-family:"lucida grande",tahoma,verdana,arial,sans-serif
+}
+
+#agnerbox .close {
+  position: relative;
+  top: -30px;
+  right: -815px;
+}
+
+#agnerbox div {
+  padding-left:10px;
+  border:1px solid #3B5998;
+  background-color:#fff;
+  font-family:"lucida grande",tahoma,verdana,arial,sans-serif
+}
+
+#agnerbox h2 {
+  margin:-11px;
+  margin-bottom:0px;
+  color:#fff;
+  background-color:#6D84B4;
+  padding:5px 10px;
+  border:1px solid #3B5998;
+  font-size:20px;
+}
+
+/* container for external content. uses vertical scrollbar, if needed */
+div.contentWrap {
+    height:25em;
+    width: 815px;
+    overflow-x: hidden;       
+    overflow-y: scroll;
+}   
+  
+.blob { 
+  overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  /* width: 99%; */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}

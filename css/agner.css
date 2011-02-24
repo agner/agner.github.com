@@ -18,9 +18,7 @@ a:active {
   /* overlay is hidden before loading */
   display:none;
 
-  /* standard decorations */
-  width:850px;
-  border:10px solid #666;
+	position: relative;
 
   /* for modern browsers use semi-transparent color on the border. nice! */
   border:10px solid rgba(82, 82, 82, 0.698);
@@ -30,22 +28,56 @@ a:active {
   -webkit-border-radius:8px;
 }
 
-.status {
-  margin-top: -2px;
-  margin-left: -30px;
-  padding-bottom: 2px;
-  color: #666;
+#agnerbox div.toolbar {
+	position: relative;
+	border-top: none;
+	border-right: none;
+	border-bottom: none;
+	border-left: none;
+	color: #666;
+	height: 20px;
+	background-color: #fff;
   font-size:12px;
   font-family:"lucida grande",tahoma,verdana,arial,sans-serif
+	
 }
 
-#agnerbox .close {
+#agnerbox div.toolbar .buttons {
   position: relative;
   top: -30px;
-  right: -815px;
 }
 
-#agnerbox div {
+#agnerbox div.toolbar .project {
+  position: relative;
+	top: -18px;
+}
+
+#agnerbox div.status {
+	position: relative;
+	top: -18px;
+	border-top: none;
+	border-right: none;
+	border-bottom: none;
+	border-left: none;
+}
+
+#agnerbox .status {
+	position: relative;
+	left: 8px;
+  margin-top: -2px;
+  margin-left: 2px;
+  padding-bottom: 2px;
+	width: 500px;
+	float: left;
+}
+
+#agnerbox .update {
+	font-size:12px;
+  font-family:"lucida grande",tahoma,verdana,arial,sans-serif
+  
+}
+
+#agnerbox div.contentWrap {
   padding-left:10px;
   border:1px solid #3B5998;
   background-color:#fff;
@@ -63,14 +95,16 @@ a:active {
 }
 
 /* container for external content. uses vertical scrollbar, if needed */
-div.contentWrap {
-    height:25em;
-    width: 815px;
+#agnerbox div.contentWrap {
     overflow-x: hidden;       
     overflow-y: scroll;
+		margin-right: 10px;
+		margin-left: 10px;
+		margin-bottom: -6px;
+		padding-top: 10px;
 }   
   
-.blob { 
+#agnerbox .blob { 
   overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
   white-space: pre-wrap; /* css-3 */
   white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */

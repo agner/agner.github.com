@@ -16,12 +16,12 @@ function fetch(rs, i) {
     );
 }
 
-function prepare_overlay() {
+function prepare_overlay(top) {
   
   $("#agnerbox").overlay({
 
     // custom top position
-    top: 50,
+    top: top,
 
     oneInstance: true,
 
@@ -42,20 +42,35 @@ function prepare_overlay() {
     closeOnClick: false,
 
     // load it immediately after the construction
-    load: false 
+    load: false,
+
+		onClose: function () {
+			
+		}
 
   });
+
   
 }
-   
 
 window.master_read = function (i, url)
 {
-  prepare_overlay();
+	var height = $(window).height() - 150;
+	var width = $(window).width();
+	var margin_value = 0.05;
+	var margin_width = width - parseInt(width * margin_value) ;
+	var margin_height = height - parseInt(height * margin_value);
+	
+  prepare_overlay(parseInt(height * margin_value));
   
   var overlay = $('#agnerbox').overlay();
-  var wrap = overlay.getOverlay().find(".contentWrap");
+	var content = overlay.getOverlay();
+	
+	content.css({width: margin_width, height: margin_height});
+	var buttons = content.find('div.toolbar .buttons').css({right: (margin_width * -1) + 26});
 
+	content.find(".contentWrap").css({height: margin_height - 70});
+  
   var split = url.split('github.com/')[1].split('/');
   var user = split[0];
   var repo = split[1];
@@ -72,14 +87,16 @@ window.master_read = function (i, url)
       {
         found = true;
         read(user, repo, file, sha);
-        $('#agner_status').html("Located " + file)
+				var homepage = 'http://github.com/' + user +'/'+ repo;
+        $('#agner_status').html(file);
+        $('#agner_project').html('<a target="_blank" href="' + homepage + '">' + repo +'</a>');
       }
       
     })
 
     if (! found)
     {
-      document.getElementById('li_' + i).innerHTML = 'not found';
+      $('#li_' + i).html('not found').delay(1800).parent().fadeOut(1000);
       return;
     }
   
@@ -100,22 +117,54 @@ window.read = function (user, repo, file, sha)
   href = "http://github.com/api/v2/json/commits/list/"+user+"/"+repo+"/master/"+file;
   
   $("#agner_status").html('Locating README...');
-      
+
+	var fix_links = function (content) {		
+		content.find('a:not([href^=http])').each(function() { 
+			var href = this.href;
+			
+			if (href.indexOf('mailto:') > -1)
+				return;
+				
+			if (href.indexOf(window.location.host) > -1)
+				href = href.split(window.location.host)[1];
+			
+			if (href.indexOf(user + '/') > -1)
+				href = href.split(user + '/')[1];
+				
+			if (href.indexOf('tree/master') == -1)
+				href = 'tree/master' + href;
+				
+			$(this).attr('target', '_blank')
+						 .attr('href', 'http://github.com/' + user + '/' + repo + '/' + href)
+		});
+		
+	}
+
   $.getJSON(
       href +"?callback=?", 
       function (data) {
         var tree = data.commits[0].tree;
         data_href = "http://github.com/api/v2/json/blob/show/"+user+"/"+repo+"/"+tree+"/"+file;
-        
+        wrap.html('').append($('<span class="update">Loading ' + file +'...</span>'));
         $.getJSON(data_href +"?callback=?",
             function (text) {
-              if (file.indexOf('.md') > -1 || file.indexOf('.markdown') > -1)
+							
+              if (file.indexOf('.md') > -1 
+							||  file.indexOf('.markdown') > -1)
               {
-                wrap.html(Markdown(text.blob.data))           
+								var converter = new Showdown.converter();
+                fix_links(wrap.html(converter.makeHtml(text.blob.data)))
+
               } else
-              {
-                wrap.html('<pre class="blob">' + text.blob.data + '</pre>')           
+							if (file.indexOf('.textile') > -1)
+							{
+								fix_links(wrap.html(convert(text.blob.data)))
+							
+							} else 
+              {	
+                fix_links(wrap.html('<pre class="blob">' + text.blob.data + '</pre>'))
               }
+								
             }       
           )
 
@@ -138,20 +187,40 @@ function display(repositories) {
         }
         var li = $('<li/>').append(
                 $('<a/>').attr('href', repos.url).text(m[1]));
-        if (repos.homepage != "") {
+
+				var homepage = repos.homepage;
+				var github = repos.homepage.indexOf('https://github.com') !== -1;
+				if (github) {
+					homepage = repos.homepage.replace('https:', 'https:');
+				} else {
+					switch (homepage) // first exception, TODO: move this a gist and read from there 
+					{
+						case 'http://agner.github.com/':
+							homepage = 'http://github.com/agner/agner';
+							github = true;
+							break;
+					}
+				}
+
+        if (homepage) {
             li
                 .append(' (')
                 .append($('<a>homepage</a>').attr('href', repos.homepage))
                 .append(')');
-
-            if (repos.homepage.indexOf('https://github.com') !== -1)
-              li
-                .append(' (')
-                .append($('<a>readme</a>')
-                  .attr('id', 'li_' + i)
-                  .attr('href', 'javascript:master_read("'+i+'", "'+repos.homepage.replace('https:', 'https:')+'")'))
-                .append(')');
+			  }
+			
+				if (github) {
+             li
+               .append($('<span></span>')
+								.append(' (')
+									.append(($('<a>readme</a>')
+									.attr('class', 'readme')
+                 	.attr('id', 'li_' + i)
+                 	.attr('href', homepage)
+									.bind('click', function () { master_read(i, homepage); return false })
+								)).append(')'))
         }
+
         if (repos.description != "") {
             var div = $('<div class="description"/>');
             li.append(div.text(repos.description));

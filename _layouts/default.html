@@ -17,7 +17,8 @@ github_url: "https://github.com/agner/agner"
 	<link rel="stylesheet" href="/css/agner.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/css/lightbox.css" type="text/css" media="screen" />
   <script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script>
-	<script type="text/javascript" src="/js/markdown.js"></script>
+	<script type="text/javascript" src="/js/showdown.js"></script>
+	<script type="text/javascript" src="/js/textile.js"></script>	
 	<script type="text/javascript" src="/js/agner.js"></script>
 <script type="text/javascript">
 
@@ -50,11 +51,15 @@ github_url: "https://github.com/agner/agner"
 
     <div> 
       <h2>Agner README Navigator</h2> 
-        <button class="close">X</button> 
 
-      <span class="status"> 
-        Status: <span id="agner_status"></span>
-      </span> 
+      <div class="toolbar"> 
+	      <div class="buttons">
+					<button class="close">X</button>
+				</div>
+        <div class="status"> Project: <b><span id="agner_project"> </span></b> |
+						File: <b><span id="agner_status"></span></b> 
+						</div>
+      </div> 
       
       <div class="contentWrap"></div> 
 

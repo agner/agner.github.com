@@ -176,7 +176,7 @@ function display(repositories) {
     repositories = $
         .grep(
             repositories,
-            function (repos) { return /^(.+)\.agner$/.test(repos.name); })
+            function (repos) { return /^(.+)\.agner$/.test(repos.name) && repos.pushed_at != undefined; })
         .sort(
             function (r1, r2) { return r1.name.localeCompare(r2.name) });
     var ul = $('<ul/>');

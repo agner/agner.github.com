@@ -32,18 +32,6 @@ Resources
 * [Wiki](https://github.com/agner/agner/wiki)
 * [Mailing list](http://groups.google.com/group/agner-erlang)
 
-We incur some running costs (primarily for the <a href="http://build.erlagner.org/">Build Bot</a> at this moment,
-a 512MB Rackspace Cloud Server with a lot of traffic), and we'll appreciate your donations to help run the service.
-
-Also, we'll be delighted to know that you love what we do. Thank you!
-
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_s-xclick" />
-<input type="hidden" name="hosted_button_id" value="RB3TVE3ZRQFZ8" />
-<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
-<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"></img>
-</form>
-
 Download
 --------
 

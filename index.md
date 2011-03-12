@@ -1,9 +1,9 @@
 ---
 layout: default
-title: "Erlang Package Index"
+title: "Erlang Package Index & Package Manager"
 ---
 
-Agner is a rebar-friendly Erlang package index inspired by Clojars and
+Agner is a rebar-friendly Erlang package index and package manager inspired by Clojars and
 Homebrew.
 
 Essentially, Agner is an index of Erlang packages with some extra

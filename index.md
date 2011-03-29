@@ -41,7 +41,7 @@ Download
 Feature Box
 -----------
 
-These are the people behind awesome packages that we've indexed. Take a few minutes to listen to them and get inspired!
+These are the people behind awesome packages that we've indexed. Take a few minutes to listen to them and get inspired! (Right now we only have one interview, more coming! )
 
 <object type="application/x-shockwave-flash" width="400" height="300" data="http://vimeo.com/hubnut/?user_id=user6447669&amp;color=00adef&amp;background=000000&amp;fullscreen=1&amp;slideshow=0&amp;stream=channel&amp;id=183961&amp;server=vimeo.com">	<param name="quality" value="best" />		<param name="allowfullscreen" value="true" />		<param name="allowscriptaccess" value="always" />	<param name="scale" value="showAll" />	<param name="movie" value="http://vimeo.com/hubnut/?user_id=user6447669&amp;color=00adef&amp;background=000000&amp;fullscreen=1&amp;slideshow=0&amp;stream=channel&amp;id=183961&amp;server=vimeo.com" /></object>
 
